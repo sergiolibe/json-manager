@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/json-editor/{id}',function($id){return view('json-editor',compact('id'));});
+Route::post('/json-editor/{id}','JsonController@updateJson');
